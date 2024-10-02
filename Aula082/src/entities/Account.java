@@ -1,19 +1,19 @@
 package entities;
 
 public class Account {
-    final int numberOfAccount;
-    String holder;
-    double balance;
+    private int numberOfAccount;
+    private String holder;
+    private double balance;
 
     public Account(int numberOfAccount, String holder) {
         this.holder = holder;
         this.numberOfAccount = numberOfAccount;
     }
 
-    public Account(int numberOfAccount, String holder, double balance) {
+    public Account(int numberOfAccount, String holder, double initialBalance) {
         this.numberOfAccount = numberOfAccount;
         this.holder = holder;
-        this.balance = balance;
+        deposit(initialBalance);
     }
 
     public int getNumberOfAccount() {
@@ -32,8 +32,13 @@ public class Account {
         return balance;
     }
 
-    public void statusAccount() {
-        System.out.printf("Account %d, Holder: %s, Balance: $ %.2f\n", getNumberOfAccount(), getHolder(), getBalance());
+    public String toString() {
+        return "Account "
+                + numberOfAccount
+                + ", holder: "
+                + holder
+                + ", balance: $ "
+                + String.format("%.2f", balance);
     }
 
     public void deposit(double amount) {
@@ -41,7 +46,6 @@ public class Account {
     }
 
     public void withdraw(double amount) {
-        this.balance -= amount;
-        this.balance -= 5;
+        this.balance -= amount + 5.0;
     }
 }
