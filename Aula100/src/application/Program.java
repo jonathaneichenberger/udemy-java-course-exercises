@@ -16,8 +16,6 @@ public class Program {
 
         List<Employee> list = new ArrayList<>();
 
-        // PART 1 - READING DATA:
-
         System.out.print("How many employees will be registered? ");
         int n = sc.nextInt();
 
@@ -40,7 +38,6 @@ public class Program {
             list.add(new Employee(id, name, salary));
         }
 
-        // PART 2 - UPDATING SALARY OF GIVEN EMPLOYEE:
 
         System.out.println();
         System.out.print("Enter the employee id that will have salary increase: ");
@@ -54,7 +51,6 @@ public class Program {
             emp.increaseSalary(percentage);
         }
 
-        // PART 3 - LISTING EMPLOYEES:
 
         System.out.println();
         System.out.println("List of employees:");
